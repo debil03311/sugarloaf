@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+
+  /* --bg-body: #efffee; */
+  --bg-body: #eff;
+  --fg-body: #000;
+
+  --bg-layer: #0881;
+  --fg-layer: #000;
+  --border-layer: solid 3px lightseagreen;
+
+  --bg-input: none;
+  --fg-input: #000;
+  --border-input: solid 1px #bcb;
+
+  --bg-input-focus: #fff;
+  --fg-input-focus: #000;
+  --border-input-focus: solid 1px #000;
+
+  --bg-button: darkslategray;
+  --fg-button: #FFF;
+  --border-button: none;
+  --shadow-button: 0 0 8px #0008;
+
+  --warning: goldenrod;
+  --rounding: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  background: var(--bg-body);
+  color: var(--fg-body);
+  margin: 0;
+  padding: 1em;
+
+  gap: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+main {
+  padding-bottom: 32vh;
+}
+
+div {
+  width: 100%;
+  background: var(--bg-layer);
+  color: var(--fg-layer);
+  border-left: var(--border-layer);
+  /* border-radius: var(--rounding); */
+  padding: 1em;
+}
+
+div.collapsed {
+  height: 0;
+  background: var(--bg-button);
+  overflow: auto;
+}
+
+main, div {
+  gap: .4em 1em;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  justify-items: start;
+}
+
+label {
+  justify-self: end;
+
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input,
+textarea
+{
+  background: var(--bg-input);
+  color: var(--fg-input);
+  border: none;
+  border-bottom: var(--border-input);
+  border-radius: var(--rounding) var(--rounding) 0 0;
+  outline: none;
+  padding: .2em .4em;
+}
+
+input:focus,
+textarea:focus
+{
+  background: var(--bg-input-focus);
+  color: var(--fg-input-focus);
+  border-color: var(--border-input-focus);
+}
+
+input:not([type="checkbox"]) {
+  width: 100%;
+}
+
+input.edited {
+  font-weight: bold;
+  border-color: var(--warning);
+  border-width: 2px;
+}
+
+button {
+  border: var(--border-button);
+  border-radius: var(--rounding);
+  padding: 1em;
+  cursor: pointer;
+}
+
+#floating-buttons {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+
+#floating-buttons button {
+  background: var(--bg-button);
+  color: var(--fg-button);
+  font-weight: 600;
+  box-shadow: var(--shadow-button);
+  transition: transform 100ms;
+}
+
+#floating-buttons button:not(:active):hover {
+  transform: scale(1.1);
+}

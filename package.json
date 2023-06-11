@@ -1,0 +1,10 @@
+{
+  "name": "sugarloaf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.2.6",
+    "chrome-types": "^0.1.203"
+  }
+}
